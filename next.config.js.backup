@@ -12,17 +12,11 @@ const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
   
-  // Disable server-side compression (Tauri serves files locally)
-  compress: false,
-  
-  // Disable production source maps for smaller build size
-  productionBrowserSourceMaps: false,
-  
-  
-  //basePath: '/pdfcraft', // 替换为你的子路径
+  basePath: '/pdfcraft', // 替换为你的子路径
+
   // 仅静态导出时需要
-  //assetPrefix: '/pdfcraft/', // 静态资源路径前缀
-  
+  assetPrefix: '/pdfcraft/', // 静态资源路径前缀
+
   // Webpack configuration for WASM modules
   webpack: (config, { isServer, webpack }) => {
     // Handle qpdf-wasm and other modules that use Node.js built-ins
@@ -103,11 +97,11 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
-  // // ESLint configuration
-  // eslint: {
-  // //   Run ESLint during builds
-  //   ignoreDuringBuilds: false,
-  // },
+  //  ESLint configuration
+  //eslint: {
+     Run ESLint during builds
+  //  ignoreDuringBuilds: false,
+  //},
 
   // Compiler options for performance
   compiler: {
@@ -117,65 +111,65 @@ const nextConfig = {
     } : false,
   },
 
-  // // Headers configuration for caching
-  // // Note: These headers are applied when running with `next start`
-  // // For static export, configure headers in your hosting platform
-  // async headers() {
-  //   return [
-  //     {
-  //       // Static assets - long cache
-  //       source: '/:path*.(ico|jpg|jpeg|png|gif|svg|webp|avif|woff|woff2|ttf|eot)',
-  //       headers: [
-  //         {
-  //           key: 'Cache-Control',
-  //           value: 'public, max-age=31536000, immutable',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       // JavaScript and CSS - cache with revalidation
-  //       source: '/:path*.(js|css)',
-  //       headers: [
-  //         {
-  //           key: 'Cache-Control',
-  //           value: 'public, max-age=31536000, immutable',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       // HTML pages - short cache with revalidation
-  //       source: '/:path*',
-  //       headers: [
-  //         {
-  //           key: 'Cache-Control',
-  //           value: 'public, max-age=0, must-revalidate',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       // Security headers for all routes
-  //       source: '/:path*',
-  //       headers: [
-  //         {
-  //           key: 'X-Content-Type-Options',
-  //           value: 'nosniff',
-  //         },
-  //         {
-  //           key: 'X-Frame-Options',
-  //           value: 'SAMEORIGIN',
-  //         },
-  //         {
-  //           key: 'X-XSS-Protection',
-  //           value: '1; mode=block',
-  //         },
-  //         {
-  //           key: 'Referrer-Policy',
-  //           value: 'strict-origin-when-cross-origin',
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // },
+   //Headers configuration for caching
+   //Note: These headers are applied when running with `next start`
+   //For static export, configure headers in your hosting platform
+  //async headers() {
+  //  return [
+  //    {
+         Static assets - long cache
+  //      source: '/:path*.(ico|jpg|jpeg|png|gif|svg|webp|avif|woff|woff2|ttf|eot)',
+  //      headers: [
+  //        {
+  //          key: 'Cache-Control',
+  //          value: 'public, max-age=31536000, immutable',
+  //        },
+  //      ],
+  //    },
+  //    {
+         JavaScript and CSS - cache with revalidation
+  //      source: '/:path*.(js|css)',
+  //      headers: [
+  //        {
+  //          key: 'Cache-Control',
+  //          value: 'public, max-age=31536000, immutable',
+  //        },
+  //      ],
+  //    },
+  //    {
+         HTML pages - short cache with revalidation
+  //      source: '/:path*',
+  //      headers: [
+  //        {
+  //          key: 'Cache-Control',
+  //          value: 'public, max-age=0, must-revalidate',
+  //        },
+  //      ],
+  //    },
+  //    {
+         Security headers for all routes
+  //      source: '/:path*',
+  //      headers: [
+  //        {
+  //          key: 'X-Content-Type-Options',
+  //          value: 'nosniff',
+  //        },
+  //        {
+  //          key: 'X-Frame-Options',
+  //          value: 'SAMEORIGIN',
+  //        },
+  //        {
+  //          key: 'X-XSS-Protection',
+  //          value: '1; mode=block',
+  //        },
+  //        {
+  //          key: 'Referrer-Policy',
+  //          value: 'strict-origin-when-cross-origin',
+  //        },
+  //      ],
+  //    },
+  //  ];
+  //},
 };
 
 export default withNextIntl(nextConfig);
